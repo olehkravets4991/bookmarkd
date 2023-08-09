@@ -13,7 +13,7 @@ const cors = require("cors")
 // import morgan
 const morgan = require("morgan")
 
-const bookmarksRouter = require("./controllers/bookmarkss.js")
+const bookmarksRouter = require("./controllers/bookmarks.js")
 
 mongoose.connect(DATABASE_URL)
 
