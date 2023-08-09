@@ -14,10 +14,6 @@ const cors = require("cors")
 const morgan = require("morgan")
 
 const bookmarksRouter = require("./controllers/bookmarks.js")
-
-mongoose.connect(DATABASE_URL)
-
-
 //////////////////////////////
 // Middleware
 //////////////////////////////
