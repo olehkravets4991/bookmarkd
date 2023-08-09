@@ -28,15 +28,16 @@ app.use(morgan("dev"))
 // express functionality to recognize incoming request objects as JSON objects
 app.use(express.json())
 // Routes
+app.use("/bookmarks", bookmarksRouter)
 
-// create a test route
-app.get("/", (req, res) => {
-    res.json({hello: "world"})
-})
+// // create a test route
+// app.get("/", (req, res) => {
+//     res.json({hello: "world"})
+// })
 
-app.get('/', (req, res) => {
-    res.redirect('/bookmarks');
-    })
+// app.get('/', (req, res) => {
+//     res.redirect('/bookmarks');
+//     })
 
 // Listen
 app.listen(PORT, () => { console.log(`Listening on port ${PORT}`) })
