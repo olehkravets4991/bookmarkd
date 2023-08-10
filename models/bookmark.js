@@ -8,3 +8,5 @@ const BookmarkSchema = new mongoose.Schema({
 })
 
 const Bookmark = mongoose.model('bookmark', BookmarkSchema)
+
+module.exports=Bookmark;
