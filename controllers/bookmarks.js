@@ -1,28 +1,30 @@
 const express = require("express")
-
+const Bookmark = require("../models/bookmark.js")
 const bookmarksRouter = express.Router()
+
 
 // routes
 
-// INDEX - GET - /people - gets all people
+// INDEX - GET - /bookmarks - gets all bookmarks
 bookmarksRouter.get("/bookmarks", async (req, res) => {
     try {
-      // fetch all people from database
-      const bookmark = await bookmark.find({});
-      // send json of all people
-      res.json(bookmark);
+      // fetch all bookmarks from database
+      const bookmarksRouter = await Bookmark.find({});
+      // send json of all bookmarks
+      res.json(bookmarksRouter);
     } catch (error) {
       // send error as JSON
       res.status(400).json({ error });
     }
+    console.log("is this working")
   });
 
-  // CREATE - POST - /people - create a new person
+  // CREATE - POST - /bookmarks - create a new bookmark
  bookmarksRouter.post("/bookmarks", async (req, res) => {
     try {
-        // create the new person
-        const bookmark = await bookmark.create(req.body)
-        // send newly created person as JSON
+        // create the new bookmark
+        const bookmark = await Bookmark.create(req.body)
+        // send newly created bookmark as JSON
         res.json(bookmark)
     }
     catch(error){
@@ -30,38 +32,38 @@ bookmarksRouter.get("/bookmarks", async (req, res) => {
     }
 })
 
-// SHOW - GET - /people/:id - get a single person
-bookmarksRouter.get("/people/:id", async (req, res) => {
+// SHOW - GET - /bookmarks/:id - get a single bookmark
+bookmarksRouter.get("/bookmarks/:id", async (req, res) => {
     try {
-      // get a person from the database
-      const bookmark = await bookmark.findById(req.params.id);
-      // return the person as json
+      // get a bookmark from the database
+      const bookmark = await Bookmark.findById(req.params.id);
+      // return the bookmark as json
       res.json(bookmark);
     } catch (error) {
       res.status(400).json({ error });
     }
   });
 
-  // UPDATE - PUT - /people/:id - update a single person
+  // UPDATE - PUT - /bookmarks/:id - update a single bookmark
   bookmarksRouter.put("/bookmarks/:id", async (req, res) => {
     try {
-      // update the person
-      const bookmark = await bookmark.findByIdAndUpdate(req.params.id, req.body, {
+      // update the bookmark
+      const bookmark = await Bookmark.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
-      // send the updated person as json
+      // send the updated bookmark as json
       res.json(bookmark);
     } catch (error) {
       res.status(400).json({ error });
     }
   });
 
-  // DESTROY - DELETE - /people/:id - delete a single person
+  // DESTROY - DELETE - /bookmarks/:id - delete a single bookmark
   bookmarksRouter.delete("/bookmarks/:id", async (req, res) => {
     try {
-        // delete the person
-        const bookmark = await bookmark.findByIdAndDelete(req.params.id)
-        // send deleted person as json
+        // delete the bookmark
+        const bookmark = await Bookmark.findByIdAndDelete(req.params.id)
+        // send deleted bookmark as json
         res.status(204).json(bookmark)
     } catch(error){
         res.status(400).json({error})
